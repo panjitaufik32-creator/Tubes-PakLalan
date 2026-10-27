@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kick Avenue Clone</title>
+    <!-- Menggunakan Font Awesome untuk ikon sosial media -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Top Bar Hitam */
+        .top-bar {
+            background-color: #000000;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 40px;
+            font-size: 13px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .top-bar-left a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .top-bar-center {
+            font-weight: 500;
+        }
+
+        .top-bar-right a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Header Utama */
+        .main-header {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #000;
+            font-style: italic;
+        }
+
+        .search-container {
+            position: relative;
+            width: 400px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            background-color: #f7f7f7;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn-login {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        .btn-register {
+            padding: 8px 18px;
+            background-color: #000;
+            color: #fff !important;
+            border-radius: 6px;
+        }
+
+        /* Sub Navigation Menu */
+        .sub-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eaeaea;
+            background-color: #fff;
+            font-size: 14px;
+        }
+
+        .sub-nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .sub-nav a.highlight {
+            color: #28a745; /* Warna hijau untuk Express Shipping */
+        }
+
+        /* Hero Banner Section */
+        .hero-section {
+            max-width: 1200px;
+            margin: 30px auto;
+            background-color: #f4f6f5;
+            border-radius: 16px;
+            position: relative;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #000;
+            margin-bottom: 8px;
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-images {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .shoe-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 220px;
+            text-align: center;
+        }
+
+        .shoe-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Tombol Navigasi Carousel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            z-index: 3;
+        }
+
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
+        .badge-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <div class="top-bar-center">
+            Download our app and explore over 1,000,000 sneakers, apparel, and lifestyle goods! >
+        </div>
+        <div class="top-bar-right">
+            <a href="#"><i class="far fa-circle-question"></i> Help Center</a>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="logo">KICK AVENUE</div>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search 1,000,000+ authentic items">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Market</a>
+            <a href="#">Sell</a>
+            <a href="#" class="btn-login">Login</a>
+            <a href="#" class="btn-register">Register</a>
+        </div>
+    </header>
+
+    <!-- Sub Navigation -->
+    <nav class="sub-nav">
+        <a href="#">Redemption Center</a>
+        <a href="#" class="highlight">Express Shipping ⚡</a>
+        <a href="#">Sneakers</a>
+        <a href="#">Apparel</a>
+        <a href="#">Luxury</a>
+        <a href="#">Electronics & Collectibles</a>
+        <a href="#">Watches</a>
+        <a href="#">K-Brands</a>
+        <a href="#">Trading Cards</a>
+    </nav>
+
+    <!-- Hero Banner / Carousel Section -->
+    <section class="hero-section">
+        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        
+        <div class="hero-content">
+            <h2>ON RUNNING CLOUDRUNNER 3</h2>
+            <p>PEARL SAILOR & IVORY DEW (W)</p>
+        </div>
+
+        <div class="hero-images">
+            <!-- Placeholder gambar sepatu, Anda bisa mengganti src dengan aset gambar lokal Anda -->
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300" alt="On Running Shoe 1" style="width: 260px; transform: rotate(-10deg);">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?w=300" alt="On Running Shoe 2" style="width: 260px;">
+        </div>
+
+        <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="badge-counter">7/9</div>
+    </section>
+
+</body>
+</html>

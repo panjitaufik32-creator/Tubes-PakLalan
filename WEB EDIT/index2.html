@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Desain - Grid Layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #111;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            background-color: #eaeaea;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+        }
+
+        .creator-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #000;
+        }
+
+        .badge-pro {
+            font-size: 10px;
+            font-weight: 700;
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #555;
+            margin-left: 4px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            padding: 3px 6px;
+            border-radius: 4px;
+            color: #444;
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="grid">
+            
+            <!-- Kartu 1 -->
+            <div class="card">
+                <div class="card-image">
+                    <!-- Ganti path gambar sesuai kebutuhan Anda -->
+                    <img src="https://picsum.photos/id/1015/600/400" alt="Resn">
+                </div>
+                <div class="card-footer">
+                    <div class="creator-info">
+                        <div class="avatar"></div>
+                        <span>Resn <span class="badge-pro">PRO</span></span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">DEV</span>
+                        <span class="tag">SOTY</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu 2 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/id/1020/600/400" alt="The First The Last">
+                </div>
+                <div class="card-footer">
+                    <div class="creator-info">
+                        <div class="avatar"></div>
+                        <span>The First The Last <span class="badge-pro">PRO</span></span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">DEV</span>
+                        <span class="tag">SOTY</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kartu 3 -->
+            <div class="card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/id/1040/600/400" alt="Monks">
+                </div>
+                <div class="card-footer">
+                    <div class="creator-info">
+                        <div class="avatar"></div>
+                        <span>Monks <span class="badge-pro">PRO</span></span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">DEV</span>
+                        <span class="tag">SOTY</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
